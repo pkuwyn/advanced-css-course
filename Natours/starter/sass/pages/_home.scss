@@ -49,9 +49,9 @@
       transparent 50%
     ),
     url(../img/nat-10.jpg);
-  background-size: 100%;
+  background-size: cover;
   // background-position: right;
-  // background-repeat: no-repeat;
+  background-repeat: no-repeat;
   border-radius: 5px;
   box-shadow: 0 2rem 4rem rgba($color-black, 0.4);
 

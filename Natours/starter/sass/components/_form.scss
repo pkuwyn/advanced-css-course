@@ -15,6 +15,7 @@
     border: none;
     display: block;
     border-bottom: solid transparent 3px;
+    transition: all 0.5s;
 
     &:focus {
       outline: none;
@@ -37,7 +38,6 @@
     margin-left: 2rem;
     margin-top: 0.5rem;
     display: block;
-    // visibility: hidden;
     transition: all 0.5s;
   }
 
@@ -45,5 +45,54 @@
     opacity: 0;
     visibility: hidden;
     transform: translateY(-4rem);
+  }
+
+  //radio goutp style
+
+  &__radio {
+    &-group {
+      display: inline-block;
+      width: 49%;
+    }
+    &-input {
+      display: none;
+      // visibility: hidden;
+    }
+    &-input:checked + &-label &-button::after {
+      opacity: 1;
+    }
+
+    &-label {
+      font-size: $default-font-size;
+      cursor: pointer;
+      padding-left: 5rem;
+      position: relative;
+    }
+
+    &-button {
+      height: 3rem;
+      width: 3rem;
+      border: solid $color-primary 5px;
+      border-radius: 50%;
+      display: block;
+      position: absolute;
+      top: -0.5rem;
+      left: 0;
+      // transform: translate(50%, -50%);
+      &::after {
+        content: "";
+        display: block;
+        height: 1.3rem;
+        width: 1.3rem;
+        border-radius: 50%;
+        background-color: $color-primary;
+        position: absolute;
+        top: 50%;
+        left: 50%;
+        transform: translate(-50%, -50%);
+        opacity: 0;
+        transition: all 0.3s;
+      }
+    }
   }
 }
