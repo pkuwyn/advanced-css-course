@@ -4,6 +4,9 @@
   position: relative;
   height: 53rem;
 
+  @include respond(tab-port) {
+    height: 80rem;
+  }
   &__side {
     height: 53rem;
     border-radius: 10px;
@@ -22,6 +25,12 @@
     }
     &--back {
       transform: rotateY(180deg);
+      @include respond(tab-port) {
+        transform: rotateY(0deg);
+        top: unset;
+        left: unset;
+        bottom: 0;
+      }
 
       &-1 {
         background-image: linear-gradient(
