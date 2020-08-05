@@ -8,6 +8,13 @@ body {
 
 .heading-primary {
   color: $color-white;
+  
+  //touch screen query just for experiment
+  @media only screen and (hover:none){
+  color: black;
+  }
+
+  
   text-transform: uppercase;
   /* reduce backface to be seen when doing 3d animations */
   backface-visibility: hidden;
