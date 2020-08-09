@@ -1,3 +1,8 @@
+@import "mixins";
+@import "base";
+@import "layout";
+@import "components";
+
 /*
 COLORS
 
@@ -15,14 +20,3 @@ Grey dark 2: #777
 Grey dark 3: #999
 
 */
-
-* {
-    margin: 0;
-    padding: 0;
-    box-sizing: border-box;
-  }
-
-
-  body{
-      background-color: red;
-  }
