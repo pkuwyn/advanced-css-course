@@ -4,6 +4,12 @@
   margin: 8rem auto;
   background-color: var(--color-grey-light-2);
   box-shadow: var(--shadow-dark);
+
+  @include respond(max-bp1) {
+    margin: 0;
+    width: 100%;
+    max-width: 100%;
+  }
 }
 
 .header {
@@ -14,12 +20,22 @@
   display: flex;
   justify-content: space-between;
   align-items: center;
+
+  @include respond(max-bp5) {
+    flex-wrap: wrap;
+    height: 12rem;
+    align-content: space-around;
+  }
 }
 
 .content {
   display: flex;
   //test
   min-height: 70rem;
+
+  @include respond(max-bp3) {
+    flex-direction: column;
+  }
 }
 
 .sidebar {
@@ -32,6 +48,54 @@
 }
 
 .hotel-view {
-  background-color: orange;
+  // background-color: orange;
   flex: 1;
+}
+
+.detail {
+  font-size: 1.4rem;
+
+  padding: 4.5rem;
+  display: flex;
+  background-color: var(--color-grey-light-1);
+  border-bottom: var(--line);
+
+  @include respond(max-bp3) {
+    padding: 3rem;
+  }
+
+  @include respond(max-bp4) {
+    // flex-wrap: wrap;
+    flex-direction: column;
+  }
+}
+
+.description {
+  padding: 3rem;
+  margin-right: 4.5rem;
+  background-color: #fff;
+  box-shadow: var(--shadow-light);
+
+  flex: 0 0 60%;
+  display: flex;
+  flex-direction: column;
+  justify-content: space-between;
+
+  @include respond(max-bp3) {
+    padding: 2rem;
+    margin-right: 3rem;
+    margin-bottom: 3rem;
+  }
+
+  @include respond(max-bp4) {
+    flex: 0 0 auto;
+    margin-right: 0;
+  }
+}
+.user-reviews {
+  display: flex;
+
+  flex-direction: column;
+  justify-content: space-between;
+  align-items: center;
 }

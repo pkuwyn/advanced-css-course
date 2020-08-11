@@ -11,6 +11,12 @@
   flex: 0 0 40%;
   @include flexCenter;
 
+  @include respond(max-bp5) {
+    order: 1;
+    flex: 0 0 100%;
+    background-color: var(--color-grey-light-2);
+  }
+
   &__input {
     font-family: inherit;
     font-size: inherit;
@@ -116,11 +122,23 @@
   list-style: none;
   margin-top: 3.5rem;
 
+  @include respond(max-bp3) {
+    display: flex;
+    margin-top: 0;
+  }
+
   &__item {
+    @include respond(max-bp3) {
+      flex: 1;
+    }
     position: relative;
     z-index: 0;
     &:not(:last-child) {
       margin-bottom: 0.5rem;
+
+      @include respond(max-bp3) {
+        margin-bottom: 0;
+      }
     }
     &::before {
       content: "";
@@ -152,6 +170,14 @@
     &,
     &:link,
     &:visited {
+      @include respond(max-bp3) {
+        justify-content: center;
+        padding: 2rem;
+      }
+      @include respond(max-bp4) {
+        flex-direction: column;
+        padding: 1.5rem 0.5rem;
+      }
       text-decoration: none;
       color: var(--color-grey-light-1);
       font-weight: 100;
@@ -167,6 +193,12 @@
     height: 1.75rem;
     fill: currentColor;
     margin-right: 1.6rem;
+    @include respond(max-bp4) {
+      margin-right: 0;
+      width: 1.5rem;
+      height: 1.5rem;
+      margin-bottom: 5px;
+    }
   }
 }
 .legal {
@@ -174,4 +206,290 @@
   text-align: center;
   padding: 2.5rem;
   color: var(--color-grey-light-4);
+  @include respond(max-bp3) {
+    display: none;
+  }
+}
+
+//Gallery
+.gallery {
+  display: flex;
+
+  &__photo {
+    width: 100%;
+    display: block;
+    // vertical-align: top;
+  }
+}
+
+//Overview
+.overview {
+  background-color: #fff;
+  display: flex;
+  align-items: center;
+  border-bottom: var(--line);
+
+  &__heading {
+    color: var(--color-grey-dark-3);
+    font-size: 2.25rem;
+    font-weight: 300;
+    letter-spacing: 1px;
+    text-transform: uppercase;
+    padding: 1.5rem 3rem;
+
+    @include respond(max-bp4) {
+      font-size: 1.8rem;
+      padding: 1.2rem 2.5rem;
+    }
+  }
+
+  &__stars {
+    // flex: 1 0 auto;
+    margin-right: auto;
+    display: flex;
+    // line-height: 0;
+  }
+
+  &__icon-star,
+  &__icon-location {
+    width: 1.75rem;
+    height: 1.75rem;
+    fill: var(--color-primary);
+  }
+
+  &__icon-location {
+    margin-right: 0.5rem;
+  }
+  &__location {
+    @include flexCenter;
+    font-size: 1.2rem;
+  }
+
+  &__rating {
+    color: white;
+    background-color: var(--color-primary);
+    padding: 0 2.25rem;
+    margin-left: 3rem;
+    text-align: center;
+    align-self: stretch;
+    @include flexCenter;
+    flex-direction: column;
+
+    @include respond(max-bp4) {
+      padding: 0 1.5rem;
+    }
+
+    &-average {
+      font-size: 2.25rem;
+      font-weight: 300;
+
+      @include respond(max-bp4) {
+        font-size: 1.8rem;
+      }
+    }
+
+    &-count {
+      font-size: 0.8rem;
+      text-transform: uppercase;
+      @include respond(max-bp4) {
+        font-size: 0.5rem;
+      }
+    }
+  }
+}
+
+//Detail
+.description {
+  .paragraph {
+    &:not(:last-of-type) {
+      margin-bottom: 2rem;
+    }
+  }
+
+  .list {
+    list-style: none;
+    margin: 3rem 0;
+    padding: 3rem 0;
+    border-top: var(--line);
+    border-bottom: var(--line);
+    display: flex;
+    flex-wrap: wrap;
+
+    &__item {
+      flex: 0 0 50%;
+      margin-bottom: 0.7rem;
+
+      &::before {
+        content: "";
+        display: inline-block;
+        height: 1rem;
+        width: 1rem;
+        margin-right: 0.7rem;
+
+        //Old browser
+        background-image: url(../img/chevron-thin-right.svg);
+        background-size: cover;
+
+        @supports (-webkit-mask-image: url()) or (mask-image: url()) {
+          mask-image: url(../img/chevron-thin-right.svg);
+          mask-size: cover;
+          background-color: var(--color-primary);
+          background-image: unset;
+        }
+      }
+    }
+  }
+  .recommend {
+    display: flex;
+    align-items: center;
+    font-size: 1.2rem;
+    color: var(--color-grey-dark-3);
+
+    &__count {
+      font-weight: 100;
+      margin-right: auto;
+    }
+    &__friends {
+      flex: 0 0 20%;
+      display: flex;
+    }
+    &__photo {
+      width: 5rem;
+      border-radius: 50%;
+      margin-left: -1.5rem;
+      border: 3px solid #fff;
+    }
+  }
+}
+
+.review {
+  background-color: #fff;
+  box-shadow: var(--shadow-light);
+
+  margin-bottom: 3.5rem;
+  padding: 3rem;
+
+  position: relative;
+  overflow: hidden;
+
+  @include respond(max-bp3) {
+    padding: 2rem;
+    margin-bottom: 3rem;
+  }
+
+  &::before {
+    content: "\201C";
+    position: absolute;
+    top: -2.75rem;
+    left: -1rem;
+    line-height: 1;
+    font-size: 20rem;
+    font-family: sans-serif;
+    color: var(--color-grey-light-2);
+  }
+
+  &__text {
+    position: relative;
+    margin-bottom: 2rem;
+    z-index: 1;
+  }
+
+  &__user {
+    display: flex;
+    align-items: center;
+
+    &-box {
+      margin-right: auto;
+    }
+    &-name {
+      font-size: 1.1rem;
+      font-weight: 600;
+      text-transform: uppercase;
+      margin-bottom: 0.4rem;
+    }
+    &-date {
+      font-size: 1rem;
+      color: var(--color-grey-dark-3);
+    }
+  }
+  &__photo {
+    width: 5rem;
+    border-radius: 50%;
+    margin-right: 1.5rem;
+  }
+  &__rating {
+    color: var(--color-primary);
+    font-size: 2.2rem;
+    font-weight: 300;
+  }
+}
+
+//CTA
+.cta {
+  background-color: #fff;
+  padding: 3.5rem 0;
+  text-align: center;
+  @include respond(max-bp3) {
+    padding: 2.5rem 0;
+  }
+  &__book-now {
+    font-size: 2rem;
+    font-weight: 300;
+    text-transform: uppercase;
+    margin-bottom: 2.5rem;
+  }
+}
+
+//CTA button
+.btn {
+  border: none;
+  border-radius: 10rem;
+  font-size: 1.5rem;
+  font-weight: 300;
+  text-transform: uppercase;
+  color: white;
+  cursor: pointer;
+  background-image: linear-gradient(
+    to right,
+    var(--color-primary-light),
+    var(--color-primary-dark)
+  );
+
+  overflow: hidden;
+  position: relative;
+
+  &__visible {
+    display: inline-block;
+    padding: 2rem 7.5rem;
+    transition: all 0.2s;
+  }
+  &__invisible {
+    display: inline-block;
+    position: absolute;
+    padding: 2rem 0rem;
+    width: 100%;
+    // height: 100%;
+    left: 0;
+    top: -100%;
+    transition: all 0.2s;
+  }
+
+  &:hover {
+    background-image: linear-gradient(
+      to left,
+      var(--color-primary-light),
+      var(--color-primary-dark)
+    );
+  }
+  &:hover &__visible {
+    transform: translateY(100%);
+  }
+  &:hover &__invisible {
+    top: 0;
+  }
+
+  &:focus {
+    outline: none;
+    animation: pulsate 1s infinite;
+  }
 }
