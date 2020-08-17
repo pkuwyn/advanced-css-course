@@ -1,0 +1,61 @@
+.story {
+  &__pictures {
+    background-image: linear-gradient(
+        rgba($color-primary, 0.5),
+        rgba($color-primary, 0.5)
+      ),
+      url(../img/back.jpg);
+
+    background-size: cover;
+
+    display: grid;
+    grid-template-columns: repeat(6, 1fr);
+    grid-template-rows: repeat(6, 1fr);
+    align-items: center;
+
+    @include respond(max-bp3) {
+      padding: 6rem;
+    }
+  }
+  &__img {
+    &--1 {
+      width: 100%;
+      grid-column: 2/-2;
+      grid-row: 2/-2;
+      box-shadow: 0 2rem 6rem rgba(black, 0.2);
+
+      @include respond(max-bp3) {
+        grid-column: 1/5;
+        grid-row: 1/-1;
+      }
+    }
+    &--2 {
+      width: 120%;
+      grid-column: 4/-1;
+      grid-row: 4/-2;
+      z-index: 1;
+      box-shadow: 0 2rem 6rem rgba(black, 0.2);
+
+      @include respond(max-bp3) {
+        width: 100%;
+
+        grid-column: 4/-1;
+        grid-row: 2/-2;
+      }
+    }
+  }
+
+  &__content {
+    background-color: $color-grey-light-1;
+    padding: 6rem 8vw;
+    display: grid;
+
+    justify-items: start;
+    align-content: center;
+  }
+  &__text {
+    font-size: 1.7rem;
+    font-style: italic;
+    margin-bottom: 4rem;
+  }
+}
